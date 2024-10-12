@@ -9,6 +9,7 @@ import PostJobs from './pages/PostJobs';
 import SavedJobs from './pages/SavedJobs';
 import MyJobs from './pages/MyJobs';
 import { ThemeProvider } from './components/ThemeProvider';
+import './App.css'
 
 const router = createBrowserRouter([
   {
