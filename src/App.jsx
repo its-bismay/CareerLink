@@ -10,43 +10,64 @@ import SavedJobs from './pages/SavedJobs';
 import MyJobs from './pages/MyJobs';
 import { ThemeProvider } from './components/ThemeProvider';
 import './App.css'
+import ProtectedRoute from './components/ProtectedRoute';
 
 const router = createBrowserRouter([
   {
     element:<AppLayout></AppLayout>,
     children:[
       {
-        path:'/',
-        element:<LandingPage></LandingPage>
+        path: "/",
+        element: <LandingPage />,
       },
       {
-        path:'/onboarding',
-        element:<Onboarding />
+        path: "/onboarding",
+        element: (
+          <ProtectedRoute>
+            <Onboarding />
+          </ProtectedRoute>
+        ),
       },
       {
-        path:'/joblisting',
-        element:<JobListing />
+        path: "/jobs",
+        element: (
+          <ProtectedRoute>
+            <JobListing/>
+          </ProtectedRoute>
+        ),
       },
       {
-        path:'/jobs',
-        element:<JobListing />
+        path: "/post-job",
+        element: (
+          <ProtectedRoute>
+            <PostJobs/>
+          </ProtectedRoute>
+        ),
       },
       {
-        path:'/job/:id',
-        element:<Job />
+        path: "/my-jobs",
+        element: (
+          <ProtectedRoute>
+            <MyJobs/>
+          </ProtectedRoute>
+        ),
       },
       {
-        path:'/post-job',
-        element:<PostJobs />
+        path: "/saved-jobs",
+        element: (
+          <ProtectedRoute>
+            <SavedJobs />
+          </ProtectedRoute>
+        ),
       },
       {
-        path:'/saved-jobs',
-        element:<SavedJobs />
+        path: "/job/:id",
+        element: (
+          <ProtectedRoute>
+            <Job />
+          </ProtectedRoute>
+        ),
       },
-      {
-        path:'/my-jobs',
-        element:<MyJobs />
-      }
     ]
   }
 ])
