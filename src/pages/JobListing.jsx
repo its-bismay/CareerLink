@@ -28,6 +28,13 @@ const JobListing = () => {
 
   const { isLoaded } = useUser()
 
+
+  const {
+    // loading: loadingCompanies,
+    data: companies,
+    fn: fnCompanies,
+  } = Usefetch(getCompanies);
+
   const {fn: fnjobs,
     data: datajobs,
     loading: loadingjobs,
