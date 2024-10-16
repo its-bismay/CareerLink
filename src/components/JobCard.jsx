@@ -1,15 +1,24 @@
 import { useUser } from '@clerk/clerk-react'
-import React from 'react'
-import { Card } from './ui/card';
+import Usefetch from '@/hooks/Usefetch';
+import { Card, CardHeader, CardTitle, CardContent, CardFooter  } from './ui/card';
 import { Trash2Icon, MapPinIcon, Heart } from 'lucide-react';
 import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
+import { saveJob } from '@/api/apijobs';
 
-const JobCard = ({job,
+
+const JobCard = ({
+    job,
     isMyJob = false,
     savedInit = false,
-    onJobSaves = () = {},
+    onJobSaved = () => {},
 }) => {
+
+
+    const {fn: fnSavedJobs,
+        data: savedJobs,
+        loading: loadingSavedJobs,
+      } = Usefetch(saveJob)
 
     const {user} = useUser(); 
   return (

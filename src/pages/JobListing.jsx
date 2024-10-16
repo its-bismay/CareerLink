@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/select";
 
 import { getCompanies } from "@/api/apiCompanies";
-import { getJobs } from "@/api/apiJobs";
 
 import JobCard from "@/components/JobCard";
 
